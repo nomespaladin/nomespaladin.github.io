@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NP - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+            background: black; 
+            color: white
+
+
+
+
+        }
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+        }
+        .matrix-bg canvas {
+            display: block;
+        }
+        .menu {
+            position: fixed;
+            top: 45;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            z-index: 10;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .menu.open {
+            transform: translateX(0);
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 20;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>UNDER DEVELOPMENT</h1>
+    
+    <div class="matrix-bg">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+    <div class="menu-toggle">
+        <i class="fas fa-bars text-white text-2xl"></i>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://github.com/nomespaladin">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="www.linkedin.com/in/pedro-schmidt-28126033b">Contact</a></li>
+        </ul>
+    </div>
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '01йышщзхфвпрлджчсмтьбюэяоиауёе';
+        const fontSize = 25;
+        const columns = canvas.width / fontSize;
+
+        const drops = Array.from({ length: columns }).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
