@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NP - About</title>
+    <title>whois NP?</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <style>
@@ -70,10 +70,34 @@
             z-index: 20;
             cursor: pointer;
         }
+        
+        .about-container {
+        position: fixed;
+        background: black;
+        color: greenyellow;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%; /* Adjust width as needed */
+        max-width:500px; /* Maximum width */
+        margin: auto; /* Center the container */
+        text-align: center; /* Center text */
+        z-index: 10; /* Ensure it appears above the matrix background */
+        top: 50%; /* Position it in the middle of the page */
+        transform: translateY(-50%); /* Adjust for vertical centering */
+        justify-content:  center;
+        align-items:  center;
+        }
+
+        .about-image {
+        max-width: 100%; /* Responsive image */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 10px; /* Space above the image */
+    
+        }
     </style>
 </head>
 <body>
-    <h1>UNDER DEVELOPMENT</h1>
+    
     
     <div class="matrix-bg">
         <canvas id="matrixCanvas"></canvas>
@@ -89,6 +113,28 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="https://www.linkedin.com/in/pedro-schmidt-28126033b">Contact</a></li>
         </ul>
+    </div>
+   
+    <div class="about-container">
+
+        <h1>Whois NomesPaladin?</h1>
+
+        <h2>
+            Welcome to My Cybersecurity Journey!
+
+            Hello and thank you for visiting my website! My name is Pedro, and I am a passionate cybersecurity student dedicated to exploring the ever-evolving world of digital security. With a strong foundation in programming and a keen interest in protecting information systems, I am committed to understanding the complexities of cybersecurity and contributing to a safer online environment.
+
+            As a student, I have immersed myself in various aspects of cybersecurity, including network security, ethical hacking, and risk management. My programming skills enable me to analyze code and develop effective solutions and also offensive scripts . I believe that a solid understanding of programming languages is essential for any cybersecurity professional, and I continuously strive to enhance my skills in languages such as Python,bash and Java.
+
+            On this website, you will find a collection of my projects, research, and insights into the latest trends in cybersecurity, just navigate tru the left menu. I aim to share my knowledge and experiences with fellow students, professionals, and anyone interested in the field. Whether you are looking for resources, tips, or just want to connect, I invite you to join me on this exciting journey.
+
+            Thank you for stopping by, and I look forward to connecting with you!
+ 
+        </h2>
+        <p>  -NomesPaladin </p>
+
+        <img src="nomespaladin.jpg" alt="NomesPaladin Profile" class="about-image">
+
     </div>
     <script>
         const canvas = document.getElementById('matrixCanvas');
